@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gửi em</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Nền + trái tim bay nhẹ + trái tim 3D -->
+  <div class="bg" aria-hidden="true"></div>
+  <div class="hearts-bg" aria-hidden="true">
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+    <span class="heart-fly">♥</span>
+  </div>
+  <div class="hearts-3d" aria-hidden="true">
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+    <span class="heart-3d">♥</span>
+  </div>
+
+  <main class="main">
+    <!-- Màn chào -->
+    <section class="screen screen-welcome" id="screenWelcome">
+      <h1 class="title fade-in">Gửi em...</h1>
+      <p class="subtitle fade-in delay-1">Có điều anh muốn nói với em</p>
+      <div class="envelope-wrap fade-in delay-1" id="envelopeWrap" title="Click để mở thư">
+        <div class="envelope">
+          <div class="envelope-body"></div>
+          <div class="envelope-flap"></div>
+          <span class="envelope-seal">♥</span>
+        </div>
+      </div>
+      <p class="envelope-hint fade-in delay-1">Nhấn vào bao thư hoặc nút bên dưới</p>
+      <button type="button" class="btn btn-open" id="btnOpen">Mở thư ♥</button>
+    </section>
+
+    <!-- Màn thư -->
+    <section class="screen screen-letter" id="screenLetter" hidden>
+      <div class="letter-card">
+        <p class="letter-line" data-order="1" data-text="Anh viết những dòng này với tất cả chân thành."></p>
+        <p class="letter-line" data-order="2" data-text="Từ lâu anh đã nghĩ đến em rất nhiều."></p>
+        <p class="letter-line" data-order="3" data-text="Mỗi ngày được gần em là điều anh mong nhất."></p>
+        <p class="letter-line letter-end" data-order="4" data-text="Làm người yêu anh nhé?"></p>
+      </div>
+      <div class="choices">
+        <button type="button" class="btn btn-yes" id="btnYes">Có ♥</button>
+        <button type="button" class="btn btn-no" id="btnNo">Không</button>
+      </div>
+    </section>
+
+    <!-- Màn đồng ý (ảnh: hug.png; không có thì hiện yeu-em.svg) -->
+    <section class="screen screen-yes" id="screenYes" hidden>
+      <img class="yes-image" src="hug.png" alt="Ảnh yêu thương" onerror="this.src='yeu-em.svg'">
+      <p class="message-big">Yêu em nhiều lắm!</p>
+      <p class="message-small">Cảm ơn em đã đồng ý làm người yêu anh</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
