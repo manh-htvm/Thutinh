@@ -213,6 +213,7 @@ body {
 }
 
 .screen {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -442,6 +443,97 @@ body {
 /* ---- Màn đồng ý ---- */
 .screen-yes {
   padding-top: 0.5rem;
+}
+
+/* Chữ "anh yêu em" bay full màn hình (chỉ hiện khi màn đồng ý) */
+.screen-yes .love-text-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.screen-yes .love-text {
+  position: absolute;
+  font-family: 'Patrick Hand', cursive;
+  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+  color: rgba(194, 24, 91, 0.4);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Vị trí xuất phát + hướng bay (mỗi chữ một path khác nhau, bay vô hạn) */
+.screen-yes .love-text:nth-child(1)  { left: 0%;   top: 8%;  animation: love-fly-1 12s 0s infinite;      }
+.screen-yes .love-text:nth-child(2)  { left: 10%; top: 85%; animation: love-fly-2 14s 0.5s infinite;     }
+.screen-yes .love-text:nth-child(3)  { left: 25%; top: 15%; animation: love-fly-3 11s 1s infinite;       }
+.screen-yes .love-text:nth-child(4)  { left: 90%; top: 40%; animation: love-fly-4 15s 0.3s infinite;     }
+.screen-yes .love-text:nth-child(5)  { left: 5%;  top: 50%; animation: love-fly-5 13s 1.5s infinite;     }
+.screen-yes .love-text:nth-child(6)  { left: 70%; top: 5%;  animation: love-fly-6 10s 0.8s infinite;     }
+.screen-yes .love-text:nth-child(7)  { left: 50%; top: 75%; animation: love-fly-1 14s 2s infinite;      }
+.screen-yes .love-text:nth-child(8)  { left: 35%; top: 90%; animation: love-fly-2 12s 0.7s infinite;     }
+.screen-yes .love-text:nth-child(9)  { left: 80%; top: 60%; animation: love-fly-3 16s 1.2s infinite;     }
+.screen-yes .love-text:nth-child(10) { left: 15%; top: 30%; animation: love-fly-4 11s 0.4s infinite;     }
+.screen-yes .love-text:nth-child(11) { left: 60%; top: 88%; animation: love-fly-5 15s 2.5s infinite;     }
+.screen-yes .love-text:nth-child(12) { left: 95%; top: 20%; animation: love-fly-6 13s 0.2s infinite;     }
+.screen-yes .love-text:nth-child(13) { left: 42%; top: 3%;  animation: love-fly-1 10s 1.8s infinite;     }
+.screen-yes .love-text:nth-child(14) { left: 0%;  top: 65%; animation: love-fly-2 14s 1.4s infinite;     }
+.screen-yes .love-text:nth-child(15) { left: 55%; top: 45%; animation: love-fly-3 12s 0.6s infinite;     }
+.screen-yes .love-text:nth-child(16) { left: 28%; top: 55%; animation: love-fly-4 16s 2.2s infinite;     }
+.screen-yes .love-text:nth-child(17) { left: 88%; top: 12%; animation: love-fly-5 11s 0.9s infinite;     }
+.screen-yes .love-text:nth-child(18) { left: 8%;  top: 78%; animation: love-fly-6 15s 1.7s infinite;     }
+.screen-yes .love-text:nth-child(19) { left: 75%; top: 35%; animation: love-fly-1 13s 0.1s infinite;     }
+.screen-yes .love-text:nth-child(20) { left: 20%; top: 42%; animation: love-fly-2 10s 1.3s infinite;     }
+.screen-yes .love-text:nth-child(21) { left: 92%; top: 72%; animation: love-fly-3 14s 2.3s infinite;     }
+.screen-yes .love-text:nth-child(22) { left: 48%; top: 25%; animation: love-fly-4 12s 1.6s infinite;     }
+.screen-yes .love-text:nth-child(23) { left: 62%; top: 95%; animation: love-fly-5 16s 0.5s infinite;     }
+.screen-yes .love-text:nth-child(24) { left: 38%; top: 68%; animation: love-fly-6 11s 1.9s infinite;     }
+
+/* Bay vô hạn: từ ngoài màn hình → qua màn hình → ra ngoài → reset về đầu (lặp lại) */
+@keyframes love-fly-1 {
+  0%   { transform: translate(-120vw, 0);      opacity: 0; }
+  10%  { opacity: 0.3; }
+  90%  { opacity: 0.3; }
+  100% { transform: translate(120vw, -30vh);  opacity: 0; }
+}
+@keyframes love-fly-2 {
+  0%   { transform: translate(120vw, 0);      opacity: 0; }
+  10%  { opacity: 0.35; }
+  90%  { opacity: 0.35; }
+  100% { transform: translate(-120vw, 35vh);  opacity: 0; }
+}
+@keyframes love-fly-3 {
+  0%   { transform: translate(-110vw, 0);     opacity: 0; }
+  10%  { opacity: 0.3; }
+  90%  { opacity: 0.3; }
+  100% { transform: translate(110vw, 45vh);   opacity: 0; }
+}
+@keyframes love-fly-4 {
+  0%   { transform: translate(110vw, 0);      opacity: 0; }
+  10%  { opacity: 0.35; }
+  90%  { opacity: 0.35; }
+  100% { transform: translate(-110vw, -40vh); opacity: 0; }
+}
+@keyframes love-fly-5 {
+  0%   { transform: translate(-115vw, 0);     opacity: 0; }
+  10%  { opacity: 0.3; }
+  90%  { opacity: 0.3; }
+  100% { transform: translate(115vw, 25vh);   opacity: 0; }
+}
+@keyframes love-fly-6 {
+  0%   { transform: translate(115vw, 0);      opacity: 0; }
+  10%  { opacity: 0.35; }
+  90%  { opacity: 0.35; }
+  100% { transform: translate(-115vw, 50vh);  opacity: 0; }
+}
+
+.screen-yes .yes-image,
+.screen-yes .message-big,
+.screen-yes .message-small {
+  position: relative;
+  z-index: 1;
 }
 
 .screen-yes .yes-image {

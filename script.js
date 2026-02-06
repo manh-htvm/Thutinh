@@ -16,6 +16,7 @@
   var screenYes = document.getElementById('screenYes');
   var letterLines = document.querySelectorAll('.letter-line');
   var envelopeWrap = document.getElementById('envelopeWrap');
+  var bgMusic = document.getElementById('bgMusic');
 
   if (!btnOpen || !screenWelcome || !screenLetter) return;
 
@@ -47,6 +48,13 @@
   function openLetter() {
     hide(screenWelcome);
     show(screenLetter);
+
+    // Bắt đầu phát nhạc nền local khi người dùng bấm mở thư
+    if (bgMusic) {
+      bgMusic.play().catch(function () {
+        // Nếu trình duyệt chặn, bỏ qua để không báo lỗi ra console
+      });
+    }
 
     var sorted = Array.from(letterLines).sort(function (a, b) {
       return (parseInt(a.getAttribute('data-order'), 10) || 0) - (parseInt(b.getAttribute('data-order'), 10) || 0);
